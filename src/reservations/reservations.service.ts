@@ -21,7 +21,7 @@ export class ReservationsService {
     const reservation = await this.findOne(id);
     this.reservationRulesService.ensureCanCancel(reservation);
     reservation.status = 'cancelled';
-    return
+    return this. reservationsRepository.save(reservation);
     // TODO 2: Coordinate the operation according to the examination.
     throw new NotImplementedException('TODO 2: implement cancellation');
   }
